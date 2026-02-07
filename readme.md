@@ -1,180 +1,128 @@
-📊 App User Behavior Segmentation using Unsupervised Learning
-📌 Project Overview
+# App User Segmentation using Unsupervised Machine Learning
 
-Applications generate large volumes of user activity data, but understanding user behavior without predefined labels is challenging.
-This project applies unsupervised machine learning (K-Means clustering) to segment app users based on their engagement and usage patterns.
+## 📌 Project Overview
+This project analyzes mobile application user behavior using unsupervised machine learning techniques.  
+The goal is to segment users based on engagement patterns and identify high-value and at-risk users.
 
-The goal is to identify high-engagement users, moderate users, occasional users, and at-risk users, enabling data-driven decisions for marketing, retention, and product optimization.
+K-Means clustering is applied after data preprocessing and feature scaling.  
+The project produces meaningful customer segments for business decision-making.
 
-🎯 Objectives
+---
 
-Segment users based on behavioral similarity without labeled data
+## 🎯 Objectives
+- Segment users based on usage behavior
+- Identify high, moderate, and low engagement users
+- Detect churn-risk customers
+- Support personalized marketing strategies
 
-Identify high-value and churn-risk user groups
+---
 
-Enable targeted marketing and retention strategies
+## 📊 Dataset
+The dataset contains:
+- User demographics
+- Device information
+- Session activity
+- Engagement metrics
+- Churn indicators
 
-Provide business-ready insights through visualizations and dashboards
+Location:
+data/app_user_behavior_dataset.csv
 
-💼 Business Use Cases
 
-User Segmentation for Targeted Marketing
-Personalize campaigns based on engagement levels to improve conversion rates.
+---
 
-Churn Risk Identification & Retention Planning
-Detect low-engagement and inactive users early and apply proactive retention strategies.
+## 🛠️ Tech Stack
+- Python
+- Pandas
+- Scikit-learn
+- Matplotlib
+- NumPy
 
-Personalized User Experience
-Customize features, notifications, and recommendations for different user segments.
+---
 
-Product Feature Optimization
-Understand how different user groups interact with app features to guide development priorities.
-
-Data-Driven Decision Making
-Support strategic decisions using insights derived from real user behavior patterns.
-
-📂 Dataset Description
-
-The dataset contains 50,000+ app users with features related to:
-
-User demographics
-
-Device and app information
-
-Session activity and engagement metrics
-
-Interaction behavior
-
-Churn risk indicators
-
-Key Features Used for Clustering
-
-sessions_per_week
-
-avg_session_duration_min
-
-daily_active_minutes
-
-feature_clicks_per_session
-
-pages_viewed_per_session
-
-engagement_score
-
-🔍 Methodology
-1. Data Collection
-
-Loaded a large-scale app user behavior dataset containing engagement, activity, and interaction metrics.
-
-2. Data Understanding
-
-Inspected dataset structure and data types
-
-Analyzed feature distributions and missing values
-
-3. Data Cleaning
-
-Standardized column names
-
-Handled missing values (median for numerical, mode for categorical)
-
-Removed duplicate records
-
-4. Feature Selection
-
-Selected behavior-driven numerical features that best represent user engagement.
-
-5. Feature Scaling
-
-Applied StandardScaler to normalize features, ensuring equal contribution during clustering.
-
-6. Clustering Algorithm
-
-Used K-Means clustering, which is highly scalable and suitable for large datasets (50,000+ records).
-
-7. Cluster Assignment
-
-Users were grouped into 4 distinct clusters based on behavioral similarity.
-
-8. Cluster Profiling
-
-Analyzed average engagement metrics and user counts per cluster.
-
-9. Churn Risk Analysis
-
-Calculated average churn risk and inactivity per cluster to identify at-risk users.
-
-10. Business Mapping
-
-Mapped each cluster to actionable business strategies.
-
-11. Validation
-
-Used PCA (Principal Component Analysis) to visually validate cluster separation.
-
-📊 Clustering Results
-Identified User Segments
-Cluster	Segment Name
-0	High Engagement Users
-1	Moderate Engagement Users
-2	Low Engagement / At-Risk Users
-3	Occasional Users
-Key Insights
-
-High engagement users show frequent sessions, longer durations, and low churn risk
-
-At-risk users show low activity, infrequent logins, and higher churn risk
-
-Clear behavioral separation confirmed using PCA
-
-Each user is assigned to a segment, enabling customer-level targeting
-
-🚀 Streamlit Dashboard
-
-An interactive Streamlit dashboard was built to:
-
-Explore user segments dynamically
-
-Visualize cluster distribution and profiles
-
-Analyze churn risk per cluster
-
-Download clustered user data for business use
-
-Run the Dashboard
-streamlit run app.py
-
-📁 Project Structure
-app_user_segmentation/
+## 📂 Project Structure
+APP_USER_SEGMENTATION/
 │
 ├── data/
-│   └── app_user_behavior_dataset.csv
-│
 ├── outputs/
-│   └── clustered_users_with_actions.csv
-│
+│ └── plots/
 ├── src/
-│   └── main.py
-│
-├── app.py          # Streamlit dashboard
-├── requirements.txt
+│ ├── data_processing.py
+│ ├── feature_engineering.py
+│ ├── clustering.py
+│ └── evaluation.py
+├── main.py
 └── README.md
 
-🛠️ Technologies Used
 
-Python
+---
 
-Pandas, NumPy
+## 🔍 Workflow
 
-Scikit-learn
+1. Data Cleaning
+   - Handle missing values
+   - Remove duplicates
 
-Matplotlib, Seaborn
+2. Feature Engineering
+   - Select numerical features
+   - Apply StandardScaler
 
-Streamlit
+3. Model Selection
+   - Elbow Method to choose optimal K
 
-✅ Conclusion
+4. Clustering
+   - Apply K-Means
 
-This project demonstrates how unsupervised machine learning can effectively segment large-scale user behavior data into actionable groups.
-The insights generated support personalized engagement, churn prevention, and data-driven product decisions, making the solution scalable and real-world ready.
+5. Evaluation
+   - PCA visualization
+   - Cluster profiling
+
+6. Output Generation
+   - Save clustered data
+   - Save plots
+
+---
+
+## 🚀 How to Run
+
+Install dependencies:
+
+pip install -r requirements.txt
 
 
+Run project:
+
+python main.py
+
+
+---
+
+## 📈 Outputs
+
+- Clustered Dataset:
+outputs/clustered_users.csv
+
+
+- Plots:
+outputs/plots/elbow_method.png
+outputs/plots/pca_clusters.png
+
+
+---
+
+## 📌 Results
+
+Users were segmented into four clusters:
+
+- High Engagement Users
+- Moderate Users
+- Low Engagement / At-Risk Users
+- Occasional Users
+
+The model successfully identified behavioral patterns for business action.
+
+---
+
+## 👤 Author
+Vijay Ragavan
+Aspiring Data Scientist
